@@ -52,21 +52,21 @@ public class AnalysisManager : MonoBehaviour {
             //Analyse Anwser
             else {
                 foreach (string possibleMatchA in tests[currentTest].OptionA) {
-                    if (possibleMatchA.Contains (inputText.ToLower ())) {
+                    if (inputText.ToLower ().Contains (possibleMatchA)) {
                         HandleResponse (0);
                         return;
                     }
                 }
 
                 foreach (string possibleMatchB in tests[currentTest].OptionB) {
-                    if (possibleMatchB.Contains (inputText.ToLower ())) {
+                    if (inputText.ToLower ().Contains (possibleMatchB)) {
                         HandleResponse (1);
                         return;
                     }
                 }
 
                 foreach (string possibleMatchC in tests[currentTest].OptionC) {
-                    if (possibleMatchC.Contains (inputText.ToLower ())) {
+                    if (inputText.ToLower ().Contains (possibleMatchC)) {
                         HandleResponse (2);
                         return;
                     }
