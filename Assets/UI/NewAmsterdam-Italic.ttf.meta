@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4f4e3408ecfd41344a192f0d27829cc4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: New Amsterdam
+  fontNames:
+  - New Amsterdam
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 44ede1d2a1f01a34b84e95ceab7f299b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

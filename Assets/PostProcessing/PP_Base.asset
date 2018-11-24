@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 114455436575102096}
   - {fileID: 114360109028368690}
   - {fileID: 114175338355388406}
+  - {fileID: 114182891988819290}
 --- !u!114 &114175338355388406
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -46,6 +47,32 @@ MonoBehaviour:
   lumContrib:
     overrideState: 1
     value: 0.441
+--- !u!114 &114182891988819290
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  spectralLut:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 0.156
+  fastMode:
+    overrideState: 0
+    value: 0
 --- !u!114 &114360109028368690
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -116,8 +143,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.4
   contrast:
     overrideState: 0
     value: 0
@@ -1422,7 +1449,7 @@ MonoBehaviour:
     value: 1
   preset:
     overrideState: 1
-    value: 6
+    value: 3
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -1462,7 +1489,7 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 0.43
+    value: 1.17
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1486,7 +1513,7 @@ MonoBehaviour:
     value: 0
   radius:
     overrideState: 1
-    value: 0.25
+    value: 0.43
   quality:
     overrideState: 1
-    value: 3
+    value: 4

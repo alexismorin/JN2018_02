@@ -9,14 +9,16 @@ public class AnalysisManager : MonoBehaviour {
 
     public TextMeshPro InputTextMesh;
     public TextMeshPro AITextMesh;
+    public TextMeshPro AILongFormatTextMesh;
     public TextMeshPro ConclusionsTextMesh;
     public Panel panelA;
     public Panel panelB;
+    public ContextDisplay ContextPanel;
     [Space (10)]
     public bool finalQuestion;
     string m_Hypotheses;
     string m_Recognitions;
-    DictationRecognizer m_DictationRecognizer;
+    public DictationRecognizer m_DictationRecognizer;
 
     public bool isListening = true;
     public AudioSource AIVoiceBox;
@@ -83,10 +85,12 @@ public class AnalysisManager : MonoBehaviour {
     void AskQuestion () {
         InputTextMesh.SetText (" ");
         currentTest++;
-        panelA.DisplayItem (tests[currentTest].OptionATexture);
-        panelB.DisplayItem (tests[currentTest].OptionBTexture);
+        panelA.DisplayItem (tests[currentTest].OptionATexture, tests[currentTest].OptionAWord);
+        panelB.DisplayItem (tests[currentTest].OptionBTexture, tests[currentTest].OptionBWord);
+        ContextPanel.DisplayItem (tests[currentTest].ContextTexture);
 
         AITextMesh.SetText (tests[currentTest].QuestionCaption);
+        AILongFormatTextMesh.SetText (tests[currentTest].QuestionCaptionLong);
         AIVoiceBox.PlayOneShot (tests[currentTest].QuestionAudio, 1f);
         Debug.Log (tests[currentTest].QuestionCaption);
         Invoke ("StartListening", tests[currentTest].QuestionAudio.length);
@@ -94,6 +98,7 @@ public class AnalysisManager : MonoBehaviour {
 
     void StartListening () {
         isListening = true;
+        m_DictationRecognizer.Start ();
     }
 
     public void HandleResponse (int response) {
@@ -122,24 +127,22 @@ public class AnalysisManager : MonoBehaviour {
         } else {
             switch (response) {
                 case 0:
-                    panelB.Close ();
+
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionAResponse, 1f);
-                    AITextMesh.SetText (tests[currentTest].OptionAConclusion);
+                    AILongFormatTextMesh.SetText (tests[currentTest].OptionACaption);
                     ConclusionsTextMesh.text += tests[currentTest].OptionAConclusion + "\n" + "\n";
                     Invoke ("NextQuestion", tests[currentTest].OptionAResponse.length + 0.7f);
                     return;
                 case 1:
-                    panelA.Close ();
+
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionBResponse, 1f);
-                    AITextMesh.SetText (tests[currentTest].OptionBConclusion);
+                    AILongFormatTextMesh.SetText (tests[currentTest].OptionBCaption);
                     ConclusionsTextMesh.text += tests[currentTest].OptionBConclusion + "\n" + "\n";
                     Invoke ("NextQuestion", tests[currentTest].OptionBResponse.length + 0.7f);
                     return;
                 case 2:
-                    panelA.Close ();
-                    panelB.Close ();
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionCResponse, 1f);
-                    AITextMesh.SetText (tests[currentTest].OptionCConclusion);
+                    AILongFormatTextMesh.SetText (tests[currentTest].OptionCCaption);
                     ConclusionsTextMesh.text += tests[currentTest].OptionCConclusion + "\n" + "\n";
                     currentSubversiveness++;
                     Invoke ("NextQuestion", tests[currentTest].OptionCResponse.length + 0.7f);
@@ -165,9 +168,12 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     public void NextQuestion () {
-
+        panelA.Close ();
+        panelB.Close ();
+        ContextPanel.Close ();
         InputTextMesh.SetText (" ");
         AITextMesh.SetText (" ");
+        AILongFormatTextMesh.SetText (" ");
 
         if (currentTest < tests.Length - 2) {
             AIVoiceBox.PlayOneShot (NextQuestionSound, 1f);
@@ -184,6 +190,8 @@ public class AnalysisManager : MonoBehaviour {
 
     void Start () {
         m_DictationRecognizer = new DictationRecognizer ();
+        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999f;
+        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999f;
 
         m_DictationRecognizer.DictationResult += (text, confidence) => {
             AnalyzeVoice (text);
@@ -200,14 +208,10 @@ public class AnalysisManager : MonoBehaviour {
         };
 
         m_DictationRecognizer.DictationError += (error, hresult) => {
-            //    Debug.LogErrorFormat ("Dictation error: {0}; HResult = {1}.", error, hresult);
+            Debug.LogErrorFormat ("Dictation error: {0}; HResult = {1}.", error, hresult);
         };
 
         m_DictationRecognizer.Start ();
-    }
-
-    void OnApplicationQuit () {
-        m_DictationRecognizer.Dispose ();
     }
 
 }
