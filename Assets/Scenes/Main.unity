@@ -1843,15 +1843,18 @@ MonoBehaviour:
   NextQuestionSound: {fileID: 8300000, guid: 4d0d55ac6d1da094da19fd60b5f745e7, type: 3}
   FinalQuestionSound: {fileID: 8300000, guid: 3bacf16c14bf9064f8e7252ced650a90, type: 3}
   WeNeedMoreDataSound: {fileID: 8300000, guid: 456c73a807d9be54f9efc41c8e302702, type: 3}
-  TrueEndingSound: {fileID: 8300000, guid: 1e0abbe29b4d1034781c79e3bb108eff, type: 3}
+  TrueEndingSound: {fileID: 8300000, guid: 1815d405521ef264ea32ce7686aa054a, type: 3}
   startTriggerKeyword: start
   tests:
-  - {fileID: 11400000, guid: 0f0c325417914a4498acb7e9bc5e635c, type: 2}
-  - {fileID: 11400000, guid: 0f0c325417914a4498acb7e9bc5e635c, type: 2}
+  - {fileID: 11400000, guid: 1703b6ee37b26394f96a3bd12cf546ab, type: 2}
+  - {fileID: 11400000, guid: d5f061df046e4fa43b14465cfc8a8266, type: 2}
+  - {fileID: 11400000, guid: a9a9b94a9c2bfd747b2a7d87fa905920, type: 2}
+  - {fileID: 11400000, guid: 6d382bcd3e1400547ae075ed354e14cc, type: 2}
+  - {fileID: 11400000, guid: ccd70e21babb7884f92de7b769d91b4d, type: 2}
   - {fileID: 11400000, guid: 3d36bbfa7ea256e46b6d8583bcdc50eb, type: 2}
   currentTest: -1
   currentSubversiveness: 0
-  subersiveRequirement: 1
+  subersiveRequirement: 3
 --- !u!4 &685481323
 Transform:
   m_ObjectHideFlags: 0
