@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f2fb0d7069d644e97f1c4c26c29291, type: 3}
+  m_Name: Debug_Test
+  m_EditorClassIdentifier: 
+  QuestionAudio: {fileID: 8300000, guid: 6f398c19e5c75a6458d739cc6cf20ab5, type: 3}
+  QuestionCaption: Chocolate or Vanilla
+  OptionATexture: {fileID: 0}
+  OptionBTexture: {fileID: 0}
+  OptionCHint: 
+  OptionAResponse: {fileID: 8300000, guid: 32776c067de68ea48a2cd1b01154afd4, type: 3}
+  OptionAConclusion: You enjoy coholate
+  OptionA:
+  - chocolate
+  - milk
+  OptionBResponse: {fileID: 8300000, guid: 18ad8a4f696feba40be1628db746d36d, type: 3}
+  OptionBConclusion: You enjoy vanilla
+  OptionB:
+  - vanilla
+  OptionCResponse: {fileID: 8300000, guid: 0fc87e387ac7f964b9d7e0a64c18641b, type: 3}
+  OptionCConclusion: You chose UNEXPECTED FLAVOR
+  OptionC:
+  - pasta
+  - mint
+  - pistachio
+  - cookie
+  - peanut
