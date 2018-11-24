@@ -19,7 +19,7 @@ MonoBehaviour:
   OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
   ContextTexture: {fileID: 0}
   OptionACaption: 
-  OptionAWord: 
+  OptionAWord: Group
   OptionAResponse: {fileID: 8300000, guid: 75bb61d1e20ccdf44833f7d7d8489f6c, type: 3}
   OptionAConclusion: Discriminatory
   OptionA:
@@ -29,7 +29,7 @@ MonoBehaviour:
   - exclude
   - condemn
   OptionBCaption: 
-  OptionBWord: 
+  OptionBWord: Outsider
   OptionBResponse: {fileID: 8300000, guid: f4499e4606f126d4ab71d440555d6e5b, type: 3}
   OptionBConclusion: Pariah
   OptionB:
@@ -39,7 +39,7 @@ MonoBehaviour:
   - protect
   - outsider
   OptionCCaption: 
-  OptionCWord: 
+  OptionCWord: Both
   OptionCResponse: {fileID: 8300000, guid: 28c2bac5eb3551249942ddf888d80193, type: 3}
   OptionCConclusion: Diplomatic
   OptionC:
