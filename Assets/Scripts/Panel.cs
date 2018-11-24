@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Panel : MonoBehaviour {
 
-    public GameObject panelObject;
+    public GameObject texturePanel;
+    public GameObject animatedPanel;
 
     public void DisplayItem (Texture newTexture) {
-        panelObject.GetComponent<MeshRenderer> ().material.SetTexture ("_MainTex", newTexture);
-        GetComponent<Animator> ().SetTrigger ("Open");
+        animatedPanel.GetComponent<Animator> ().SetTrigger ("Open");
+        texturePanel.GetComponent<MeshRenderer> ().material.SetTexture ("_MainTex", newTexture);
+
+    }
+
+    public void Close () {
+        animatedPanel.GetComponent<Animator> ().SetTrigger ("Close");
     }
 
 }

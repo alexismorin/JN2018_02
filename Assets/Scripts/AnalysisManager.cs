@@ -10,6 +10,8 @@ public class AnalysisManager : MonoBehaviour {
     public TextMeshPro InputTextMesh;
     public TextMeshPro AITextMesh;
     public TextMeshPro ConclusionsTextMesh;
+    public Panel panelA;
+    public Panel panelB;
     [Space (10)]
     public bool finalQuestion;
     string m_Hypotheses;
@@ -40,7 +42,7 @@ public class AnalysisManager : MonoBehaviour {
 
             // Begin Game Stuff
             if (currentTest == -1) {
-                if (startTriggerKeyword == inputText) {
+                if (inputText.Contains (startTriggerKeyword)) {
                     Welcome ();
                     return;
                 }
@@ -81,6 +83,9 @@ public class AnalysisManager : MonoBehaviour {
     void AskQuestion () {
         InputTextMesh.SetText (" ");
         currentTest++;
+        panelA.DisplayItem (tests[currentTest].OptionATexture);
+        panelB.DisplayItem (tests[currentTest].OptionBTexture);
+
         AITextMesh.SetText (tests[currentTest].QuestionCaption);
         AIVoiceBox.PlayOneShot (tests[currentTest].QuestionAudio, 1f);
         Debug.Log (tests[currentTest].QuestionCaption);
@@ -117,18 +122,22 @@ public class AnalysisManager : MonoBehaviour {
         } else {
             switch (response) {
                 case 0:
+                    panelB.Close ();
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionAResponse, 1f);
                     AITextMesh.SetText (tests[currentTest].OptionAConclusion);
                     ConclusionsTextMesh.text += tests[currentTest].OptionAConclusion + "\n" + "\n";
                     Invoke ("NextQuestion", tests[currentTest].OptionAResponse.length + 0.7f);
                     return;
                 case 1:
+                    panelA.Close ();
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionBResponse, 1f);
                     AITextMesh.SetText (tests[currentTest].OptionBConclusion);
                     ConclusionsTextMesh.text += tests[currentTest].OptionBConclusion + "\n" + "\n";
                     Invoke ("NextQuestion", tests[currentTest].OptionBResponse.length + 0.7f);
                     return;
                 case 2:
+                    panelA.Close ();
+                    panelB.Close ();
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionCResponse, 1f);
                     AITextMesh.SetText (tests[currentTest].OptionCConclusion);
                     ConclusionsTextMesh.text += tests[currentTest].OptionCConclusion + "\n" + "\n";
