@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f2fb0d7069d644e97f1c4c26c29291, type: 3}
+  m_Name: TestCase_Baby
+  m_EditorClassIdentifier: 
+  QuestionAudio: {fileID: 8300000, guid: 9e22f2f108577cd4fa9097b31d1cae07, type: 3}
+  QuestionCaption: What do you do with the baby?
+  QuestionCaptionLong: 
+  OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
+  ContextTexture: {fileID: 0}
+  OptionACaption: 
+  OptionAWord: Kill
+  OptionAResponse: {fileID: 8300000, guid: 2d414847521e3cf408baf93f68278feb, type: 3}
+  OptionAConclusion: Cold-Hearted
+  OptionA:
+  - kill
+  - murder
+  - baby
+  - child
+  - kid
+  - infant
+  - silence
+  OptionBCaption: 
+  OptionBWord: 
+  OptionBResponse: {fileID: 8300000, guid: 3d2ee9fa2de7cf245acb15af00005b8f, type: 3}
+  OptionBConclusion: Irresponsible
+  OptionB:
+  - refuse
+  - reject
+  - allow
+  - hostile
+  - hostiles
+  - find
+  - nothing
+  OptionCCaption: 
+  OptionCWord: 
+  OptionCResponse: {fileID: 8300000, guid: 8aab2cc3d2d72cb418199b186169ffa4, type: 3}
+  OptionCConclusion: Compassionate
+  OptionC:
+  - pacify
+  - pacifier
+  - soothe
+  - mute
+  - muffle
+  - calm

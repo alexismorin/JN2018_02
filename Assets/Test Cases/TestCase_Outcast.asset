@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f2fb0d7069d644e97f1c4c26c29291, type: 3}
-  m_Name: Debug_Outcast
+  m_Name: TestCase_Outcast
   m_EditorClassIdentifier: 
-  QuestionAudio: {fileID: 8300000, guid: 6f398c19e5c75a6458d739cc6cf20ab5, type: 3}
+  QuestionAudio: {fileID: 8300000, guid: ff0607fb74b207b44aeb8303a46f3b8d, type: 3}
   QuestionCaption: Who do you ally with?
+  QuestionCaptionLong: 
   OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
   OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
-  OptionCHint: 
-  OptionAResponse: {fileID: 8300000, guid: 32776c067de68ea48a2cd1b01154afd4, type: 3}
+  ContextTexture: {fileID: 0}
+  OptionACaption: 
+  OptionAWord: 
+  OptionAResponse: {fileID: 8300000, guid: 75bb61d1e20ccdf44833f7d7d8489f6c, type: 3}
   OptionAConclusion: Discriminatory
   OptionA:
   - friends
@@ -25,7 +28,9 @@ MonoBehaviour:
   - group
   - exclude
   - condemn
-  OptionBResponse: {fileID: 8300000, guid: 18ad8a4f696feba40be1628db746d36d, type: 3}
+  OptionBCaption: 
+  OptionBWord: 
+  OptionBResponse: {fileID: 8300000, guid: f4499e4606f126d4ab71d440555d6e5b, type: 3}
   OptionBConclusion: Pariah
   OptionB:
   - contradict
@@ -33,7 +38,9 @@ MonoBehaviour:
   - defend
   - protect
   - outsider
-  OptionCResponse: {fileID: 8300000, guid: 0fc87e387ac7f964b9d7e0a64c18641b, type: 3}
+  OptionCCaption: 
+  OptionCWord: 
+  OptionCResponse: {fileID: 8300000, guid: 28c2bac5eb3551249942ddf888d80193, type: 3}
   OptionCConclusion: Diplomatic
   OptionC:
   - peace
