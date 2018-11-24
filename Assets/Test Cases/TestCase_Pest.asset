@@ -19,7 +19,7 @@ MonoBehaviour:
   OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
   ContextTexture: {fileID: 0}
   OptionACaption: 
-  OptionAWord: 
+  OptionAWord: Kill
   OptionAResponse: {fileID: 8300000, guid: 1691a2e7d3396ac48981b35cc4036e69, type: 3}
   OptionAConclusion: Butcher
   OptionA:
@@ -29,7 +29,7 @@ MonoBehaviour:
   - pesticides
   - poison
   OptionBCaption: 
-  OptionBWord: 
+  OptionBWord: Nothing
   OptionBResponse: {fileID: 8300000, guid: b0a9f4c2b813d7e41ac5d08f9c02fa94, type: 3}
   OptionBConclusion: Anti-Environmentalist
   OptionB:
@@ -40,7 +40,7 @@ MonoBehaviour:
   - plants
   - plant
   OptionCCaption: 
-  OptionCWord: 
+  OptionCWord: Trap
   OptionCResponse: {fileID: 8300000, guid: c4279ce0426cd244bbfb597b1866aec8, type: 3}
   OptionCConclusion: Merciful
   OptionC:

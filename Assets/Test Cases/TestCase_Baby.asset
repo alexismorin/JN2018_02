@@ -25,13 +25,9 @@ MonoBehaviour:
   OptionA:
   - kill
   - murder
-  - baby
-  - child
-  - kid
-  - infant
   - silence
   OptionBCaption: 
-  OptionBWord: 
+  OptionBWord: Nothing
   OptionBResponse: {fileID: 8300000, guid: 3d2ee9fa2de7cf245acb15af00005b8f, type: 3}
   OptionBConclusion: Irresponsible
   OptionB:
@@ -43,7 +39,7 @@ MonoBehaviour:
   - find
   - nothing
   OptionCCaption: 
-  OptionCWord: 
+  OptionCWord: Pacify
   OptionCResponse: {fileID: 8300000, guid: 8aab2cc3d2d72cb418199b186169ffa4, type: 3}
   OptionCConclusion: Compassionate
   OptionC:
