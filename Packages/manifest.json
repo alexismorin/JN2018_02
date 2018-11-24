@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "com.unity.analytics": "3.2.2",
-    "com.unity.formats.alembic": "1.0.0-preview.2",
+    "com.unity.analytics": "3.2.0",
     "com.unity.package-manager-ui": "2.0.3",
     "com.unity.postprocessing": "2.0.17-preview",
     "com.unity.purchasing": "2.0.1",
@@ -35,7 +34,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.unity.formats.alembic": "1.0.0-preview.2"
   },
   "registry": "https://staging-packages.unity.com"
 }
