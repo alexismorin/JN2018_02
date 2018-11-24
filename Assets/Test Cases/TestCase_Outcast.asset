@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f2fb0d7069d644e97f1c4c26c29291, type: 3}
+  m_Name: TestCase_Outcast
+  m_EditorClassIdentifier: 
+  QuestionAudio: {fileID: 8300000, guid: ff0607fb74b207b44aeb8303a46f3b8d, type: 3}
+  QuestionCaption: Who do you ally with?
+  QuestionCaptionLong: 
+  OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
+  ContextTexture: {fileID: 0}
+  OptionACaption: 
+  OptionAWord: 
+  OptionAResponse: {fileID: 8300000, guid: 75bb61d1e20ccdf44833f7d7d8489f6c, type: 3}
+  OptionAConclusion: Discriminatory
+  OptionA:
+  - friends
+  - conform
+  - group
+  - exclude
+  - condemn
+  OptionBCaption: 
+  OptionBWord: 
+  OptionBResponse: {fileID: 8300000, guid: f4499e4606f126d4ab71d440555d6e5b, type: 3}
+  OptionBConclusion: Pariah
+  OptionB:
+  - contradict
+  - oppose
+  - defend
+  - protect
+  - outsider
+  OptionCCaption: 
+  OptionCWord: 
+  OptionCResponse: {fileID: 8300000, guid: 28c2bac5eb3551249942ddf888d80193, type: 3}
+  OptionCConclusion: Diplomatic
+  OptionC:
+  - peace
+  - diplomacy
+  - talk
+  - negotiate
+  - arbitrate
+  - arbiter
+  - resolve
+  - resolution
+  - both
+  - everyone
+  - neither
+  - none
+  - nobody

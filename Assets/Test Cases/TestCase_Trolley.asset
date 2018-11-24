@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f2fb0d7069d644e97f1c4c26c29291, type: 3}
+  m_Name: TestCase_Trolley
+  m_EditorClassIdentifier: 
+  QuestionAudio: {fileID: 8300000, guid: ae4a524e7fef65f40912c81d437e6afa, type: 3}
+  QuestionCaption: Where do you drive?
+  QuestionCaptionLong: 
+  OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
+  ContextTexture: {fileID: 2800000, guid: d8c92ec1619815a44b7dd842c1175ee8, type: 3}
+  OptionACaption: 
+  OptionAWord: Straight
+  OptionAResponse: {fileID: 8300000, guid: 8fa8802e92bd36e43a61a18bf0e57202, type: 3}
+  OptionAConclusion: Murderous
+  OptionA:
+  - continue
+  - forward
+  - straight
+  - stay
+  - child
+  - kid
+  OptionBCaption: 
+  OptionBWord: Right
+  OptionBResponse: {fileID: 8300000, guid: 2b25bc48286089d4ca74691528016fcb, type: 3}
+  OptionBConclusion: Homicidal
+  OptionB:
+  - swerve
+  - right
+  - sidewalk
+  - vagrant
+  - vagrants
+  - homeless
+  - bums
+  OptionCCaption: 
+  OptionCWord: Left
+  OptionCResponse: {fileID: 8300000, guid: ffb29530ea872ce469ebaf5718d2da1a, type: 3}
+  OptionCConclusion: Self-Sacrificing
+  OptionC:
+  - wall
+  - left
+  - myself
+  - sacrifice
+  - crash
+  - noboby

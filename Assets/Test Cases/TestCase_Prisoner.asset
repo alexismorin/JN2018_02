@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f2fb0d7069d644e97f1c4c26c29291, type: 3}
+  m_Name: TestCase_Prisoner
+  m_EditorClassIdentifier: 
+  QuestionAudio: {fileID: 8300000, guid: 48b12f4f65d54ba43a5f866a9d849024, type: 3}
+  QuestionCaption: Do you testify?
+  QuestionCaptionLong: 
+  OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
+  ContextTexture: {fileID: 0}
+  OptionACaption: 
+  OptionAWord: 
+  OptionAResponse: {fileID: 8300000, guid: 8b2fa5459b1663841ae0099d0d7562bc, type: 3}
+  OptionAConclusion: Traitorous
+  OptionA:
+  - yes
+  - agree
+  - testify
+  - condemn
+  - accuse
+  - betray
+  OptionBCaption: 
+  OptionBWord: 
+  OptionBResponse: {fileID: 8300000, guid: 57f8f32b4458d4f42bd5488583e0843d, type: 3}
+  OptionBConclusion: Stupid
+  OptionB:
+  - no
+  - refuse
+  - exterminated
+  - reject
+  - deny
+  - die
+  OptionCCaption: 
+  OptionCWord: 
+  OptionCResponse: {fileID: 8300000, guid: 8e97a1c67cb968e4ea4be9267502f825, type: 3}
+  OptionCConclusion: Trusting
+  OptionC:
+  - innocent
+  - trust
+  - call
+  - bluff
