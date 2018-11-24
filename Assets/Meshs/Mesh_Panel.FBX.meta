@@ -6,10 +6,16 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
+    2100002: lambert1
     2300000: //RootNode
     3300000: //RootNode
     4300000: Mesh_Panel
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 52976aeef1c9a8b48868738912c14b0f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
