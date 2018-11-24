@@ -966,7 +966,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.7169812, g: 0.2994808, b: 0.11160557, a: 1}
+  m_Color: {r: 0.6226415, g: 0.4690587, b: 0.10279457, a: 1}
   m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
@@ -1536,9 +1536,9 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.8457191, g: 0.8997881, b: 0.990566, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 2
   m_Range: 8
-  m_SpotAngle: 33
+  m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2335,9 +2335,9 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.8457191, g: 0.8997881, b: 0.990566, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 2
   m_Range: 8
-  m_SpotAngle: 33
+  m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2849,7 +2849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262799464}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 1.02, z: 3.15}
+  m_LocalPosition: {x: 0, y: 1.02, z: 2.94}
   m_LocalScale: {x: 0.78172, y: 0.78172, z: 0.78172}
   m_Children: []
   m_Father: {fileID: 715776531}
@@ -3880,8 +3880,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 3
-  m_Color: {r: 0.5589622, g: 0.7379123, b: 0.745283, a: 1}
-  m_Intensity: 0.8
+  m_Color: {r: 0.9150943, g: 0.8177898, b: 0.5913581, a: 1}
+  m_Intensity: 1.25
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3903,7 +3903,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 2.95, y: 0.23}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.25
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -3919,7 +3919,7 @@ GameObject:
   - component: {fileID: 1792519858}
   - component: {fileID: 1792519859}
   m_Layer: 0
-  m_Name: Spot Light _ Robot
+  m_Name: Spot Light - Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3932,13 +3932,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792519857}
-  m_LocalRotation: {x: 0.8601501, y: -0, z: -0, w: 0.510041}
-  m_LocalPosition: {x: 0, y: 4.07, z: 5.05}
+  m_LocalRotation: {x: 0.9183035, y: -0, z: -0, w: 0.39587703}
+  m_LocalPosition: {x: 0, y: 3.775, z: 5.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 472775725}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 118.66699, y: -0.000015258789, z: -0.000015258789}
+  m_LocalEulerAnglesHint: {x: 133.359, y: -0.000015258789, z: -0.000015258789}
 --- !u!108 &1792519859
 Light:
   m_ObjectHideFlags: 0
@@ -3949,13 +3949,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Color: {r: 0.84705883, g: 0.8980392, b: 0.99215686, a: 1}
+  m_Intensity: 1.25
+  m_Range: 7
   m_SpotAngle: 35
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -4172,8 +4172,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 3
-  m_Color: {r: 0.8207547, g: 0.7632534, b: 0.60008013, a: 1}
-  m_Intensity: 0.8
+  m_Color: {r: 0.9150943, g: 0.8177898, b: 0.5913581, a: 1}
+  m_Intensity: 1.25
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4195,7 +4195,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 2.95, y: 0.23}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.25
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
