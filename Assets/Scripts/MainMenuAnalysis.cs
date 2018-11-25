@@ -14,6 +14,7 @@ public class MainMenuAnalysis : MonoBehaviour {
     void AnalyzeVoice (string inputText) {
 
         if (inputText.ToLower ().Contains (trigger)) {
+            m_DictationRecognizer.Dispose ();
             SceneManager.LoadScene ("Main", LoadSceneMode.Single);
         }
     }

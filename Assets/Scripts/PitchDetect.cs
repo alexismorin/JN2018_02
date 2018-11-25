@@ -19,6 +19,8 @@ public class PitchDetect : MonoBehaviour {
     float pitchBuffer;
 
     Material robotMaterial;
+    //   public MeshRenderer contextImage;
+    public Light contextLight;
 
     void Start () {
         samples = new float[qSamples];
@@ -70,7 +72,10 @@ public class PitchDetect : MonoBehaviour {
 
         Color newColor = Color.HSVToRGB (ClampedValue, 0.7f, ClampedValue);
         Color finalColor = newColor * 5f;
-        robotMaterial.SetColor ("_EmissionColor", newColor);
+        Color lerpedColor = Color.Lerp (Color.red, newColor, 0.5f);
+        contextLight.color = finalColor;
+        //   contextImage.material.SetColor ("_EmissionColor", lerpedColor);
+        robotMaterial.SetColor ("_EmissionColor", lerpedColor);
     }
 
 }
