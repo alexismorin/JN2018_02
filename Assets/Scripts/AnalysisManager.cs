@@ -133,7 +133,7 @@ public class AnalysisManager : MonoBehaviour {
     void StartListening () {
         isListening = true;
         RedlightMaterial.SetColor ("_EmissionColor", RedColor * 2f);
-        ResetDictation ();
+        ReStartDictation ();
     }
 
     public void HandleResponse (int response) {
@@ -265,7 +265,7 @@ public class AnalysisManager : MonoBehaviour {
 
     void OnApplicationFocus (bool hasFocus) {
         if (gameStarted) {
-            ResetDictation ();
+            ReStartDictation ();
         }
 
     }
@@ -274,6 +274,10 @@ public class AnalysisManager : MonoBehaviour {
         if (gameStarted) {
             ClearDictation ();
         }
+    }
+
+    public void ReStartDictation () {
+        m_DictationRecognizer.Start ();
     }
 
     public void ResetDictation () {
