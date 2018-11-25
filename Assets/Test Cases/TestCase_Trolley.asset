@@ -16,8 +16,8 @@ MonoBehaviour:
   QuestionCaption: Where do you drive?
   QuestionCaptionLong: 
   OptionATexture: {fileID: 2800000, guid: 6ebb67634f3772e478df6866da16e651, type: 3}
-  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
-  ContextTexture: {fileID: 2800000, guid: d8c92ec1619815a44b7dd842c1175ee8, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: e0030a590b9f5424c983137e0e266057, type: 3}
+  ContextTexture: {fileID: 2800000, guid: f286aec98015647458e68dffd66419aa, type: 3}
   OptionACaption: 
   OptionAWord: Straight
   OptionAResponse: {fileID: 8300000, guid: 8fa8802e92bd36e43a61a18bf0e57202, type: 3}

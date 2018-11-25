@@ -15,9 +15,9 @@ MonoBehaviour:
   QuestionAudio: {fileID: 8300000, guid: 48b12f4f65d54ba43a5f866a9d849024, type: 3}
   QuestionCaption: Do you testify?
   QuestionCaptionLong: 
-  OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
-  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
-  ContextTexture: {fileID: 0}
+  OptionATexture: {fileID: 2800000, guid: 6015d42218fb4a046bf617c7e4f57764, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: 07bc66e21f56f204ab229308b2dfaeef, type: 3}
+  ContextTexture: {fileID: 2800000, guid: 7fb0ca816a767394da852d7390fce414, type: 3}
   OptionACaption: 
   OptionAWord: Agree
   OptionAResponse: {fileID: 8300000, guid: 8b2fa5459b1663841ae0099d0d7562bc, type: 3}
