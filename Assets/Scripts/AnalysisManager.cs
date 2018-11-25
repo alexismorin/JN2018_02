@@ -19,6 +19,7 @@ public class AnalysisManager : MonoBehaviour {
     string m_Hypotheses;
     string m_Recognitions;
     public DictationRecognizer m_DictationRecognizer;
+    public AudioManager audioPlayer;
 
     public bool isListening = true;
     public AudioSource AIVoiceBox;
@@ -76,6 +77,7 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     void Welcome () {
+        audioPlayer.StartMusic ();
         isListening = false;
         AITextMesh.SetText (welcomeText);
         AIVoiceBox.PlayOneShot (welcomeSound, 1f);
@@ -168,6 +170,7 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     public void NextQuestion () {
+        audioPlayer.StartMusic ();
         panelA.Close ();
         panelB.Close ();
         ContextPanel.Close ();

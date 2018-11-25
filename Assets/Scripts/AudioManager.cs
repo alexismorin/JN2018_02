@@ -8,7 +8,6 @@ public class AudioManager : MonoBehaviour {
     public AudioClip[] tracks;
 
     void Start () {
-        StartMusic ();
         InvokeRepeating ("AdjustPitch", 1, 3f);
     }
 
