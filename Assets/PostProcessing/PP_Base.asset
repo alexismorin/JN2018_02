@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -40,7 +40,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.216
+    value: 0.12
   size:
     overrideState: 1
     value: 0.38
@@ -143,8 +143,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.4
   contrast:
     overrideState: 0
     value: 3
@@ -156,7 +156,7 @@ MonoBehaviour:
     value: 0
   mixerRedOutBlueIn:
     overrideState: 0
-    value: 0
+    value: -23
   mixerGreenOutRedIn:
     overrideState: 0
     value: 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
     value: 7
   anamorphicRatio:
     overrideState: 1
-    value: 1
+    value: 0.32
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -1426,11 +1426,11 @@ MonoBehaviour:
     value: 0
   dirtTexture:
     overrideState: 1
-    value: {fileID: 0}
+    value: {fileID: 2800000, guid: 06bea6581e38b6c498f4b463c9b5095a, type: 3}
     defaultState: 1
   dirtIntensity:
     overrideState: 1
-    value: 0
+    value: 3.71
 --- !u!114 &114563277280579292
 MonoBehaviour:
   m_ObjectHideFlags: 3
