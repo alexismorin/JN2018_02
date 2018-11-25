@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
@@ -12,6 +13,7 @@ public class AnalysisManager : MonoBehaviour {
     public TextMeshPro AILongFormatTextMesh;
     public TextMeshPro ConclusionsTextMesh;
     public GameObject ConclusionsObject;
+    public GameObject Credits;
     public Panel panelA;
     public Panel panelB;
     public ContextDisplay ContextPanel;
@@ -161,19 +163,30 @@ public class AnalysisManager : MonoBehaviour {
         AIVoiceBox.PlayOneShot (WeNeedMoreDataSound, 1f);
         finalQuestion = false;
         currentTest = -1;
+        ConclusionsTextMesh.text = "";
         Invoke ("NextQuestion", WeNeedMoreDataSound.length + 0.7f);
         return;
     }
 
     public void TrueEnding () {
-
+        ConclusionsObject.SetActive (true);
         AIVoiceBox.PlayOneShot (TrueEndingSound, 1f);
         Invoke ("Recall", TrueEndingSound.length);
     }
 
     public void Recall () {
-        CameraAnimation.SetTrigger ("Jump");
+        CameraAnimation.SetTrigger ("End");
         CameraAudio.Play ();
+        Invoke ("OpenCredits", 3f);
+        Invoke ("LoadMenu", 8f);
+    }
+
+    public void OpenCredits () {
+        Credits.SetActive (true);
+    }
+
+    public void LoadMenu () {
+        SceneManager.LoadScene ("MainMenu", LoadSceneMode.Single);
     }
 
     public void NextQuestion () {
@@ -190,19 +203,23 @@ public class AnalysisManager : MonoBehaviour {
             Debug.Log ("Next Question");
             Invoke ("AskQuestion", NextQuestionSound.length + 0.5f);
         } else {
-            ConclusionsObject.SetActive (true);
-            finalQuestion = true;
-            AIVoiceBox.PlayOneShot (FinalQuestionSound, 1f);
-            Debug.Log ("End of Evaluation");
-            Invoke ("AskQuestion", FinalQuestionSound.length + 0.5f);
+            if (currentSubversiveness >= subersiveRequirement) {
+                TrueEnding ();
+            } else {
+                ConclusionsObject.SetActive (true);
+                finalQuestion = true;
+                AIVoiceBox.PlayOneShot (FinalQuestionSound, 1f);
+                Debug.Log ("End of Evaluation");
+                Invoke ("AskQuestion", FinalQuestionSound.length + 0.5f);
+            }
         }
 
     }
 
     void Start () {
         m_DictationRecognizer = new DictationRecognizer ();
-        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999999f;
-        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999999f;
+        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999f;
+        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999f;
 
         m_DictationRecognizer.DictationResult += (text, confidence) => {
             AnalyzeVoice (text);
