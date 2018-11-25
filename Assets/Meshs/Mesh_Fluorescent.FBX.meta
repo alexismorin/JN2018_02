@@ -10,7 +10,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Mesh_Fluorescent
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: ca8a770f3b7817d4db7dbf1493e4c78d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
