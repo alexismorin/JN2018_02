@@ -50,6 +50,8 @@ public class AnalysisManager : MonoBehaviour {
     public int currentSubversiveness = 0;
     public int subersiveRequirement = 1;
     public Animator RailAnimator;
+    public AudioSource RailSounds;
+    bool gameStarted;
 
     void AnalyzeVoice (string inputText) {
 
@@ -90,6 +92,7 @@ public class AnalysisManager : MonoBehaviour {
 
     void Welcome () {
         ClearDictation ();
+        gameStarted = true;
         audioPlayer.StartMusic ();
         isListening = false;
         RedlightMaterial.SetColor ("_EmissionColor", BlackColor);
@@ -106,13 +109,16 @@ public class AnalysisManager : MonoBehaviour {
         panelB.DisplayItem (tests[currentTest].OptionBTexture, tests[currentTest].OptionBWord);
         ContextPanel.DisplayItem (tests[currentTest].ContextTexture);
 
+        if (currentTest == tests.Length - 1) {
+            ConclusionsObject.SetActive (true);
+        }
+
         AITextMesh.SetText (tests[currentTest].QuestionCaption);
         AILongFormatTextMesh.SetText (tests[currentTest].QuestionCaptionLong);
         AIVoiceBox.PlayOneShot (tests[currentTest].QuestionAudio, 1f);
         Debug.Log (tests[currentTest].QuestionCaption);
         ComposeArray ();
         Invoke ("StartListening", tests[currentTest].QuestionAudio.length);
-        ResetDictation ();
     }
 
     void ComposeArray () {
@@ -127,6 +133,7 @@ public class AnalysisManager : MonoBehaviour {
     void StartListening () {
         isListening = true;
         RedlightMaterial.SetColor ("_EmissionColor", RedColor * 2f);
+        ResetDictation ();
     }
 
     public void HandleResponse (int response) {
@@ -139,6 +146,7 @@ public class AnalysisManager : MonoBehaviour {
 
             if (currentSubversiveness >= subersiveRequirement) {
                 TrueEnding ();
+
             } else {
                 switch (response) {
                     case 0:
@@ -155,6 +163,13 @@ public class AnalysisManager : MonoBehaviour {
 
         } else {
             switch (response) {
+                case 2:
+                    AIVoiceBox.PlayOneShot (tests[currentTest].OptionCResponse, 1f);
+                    AILongFormatTextMesh.SetText (tests[currentTest].OptionCCaption);
+                    ConclusionsTextMesh.text += tests[currentTest].OptionCConclusion + "\n" + "\n";
+                    currentSubversiveness++;
+                    Invoke ("NextQuestion", tests[currentTest].OptionCResponse.length + 0.7f);
+                    return;
                 case 0:
 
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionAResponse, 1f);
@@ -163,18 +178,10 @@ public class AnalysisManager : MonoBehaviour {
                     Invoke ("NextQuestion", tests[currentTest].OptionAResponse.length + 0.7f);
                     return;
                 case 1:
-
                     AIVoiceBox.PlayOneShot (tests[currentTest].OptionBResponse, 1f);
                     AILongFormatTextMesh.SetText (tests[currentTest].OptionBCaption);
                     ConclusionsTextMesh.text += tests[currentTest].OptionBConclusion + "\n" + "\n";
                     Invoke ("NextQuestion", tests[currentTest].OptionBResponse.length + 0.7f);
-                    return;
-                case 2:
-                    AIVoiceBox.PlayOneShot (tests[currentTest].OptionCResponse, 1f);
-                    AILongFormatTextMesh.SetText (tests[currentTest].OptionCCaption);
-                    ConclusionsTextMesh.text += tests[currentTest].OptionCConclusion + "\n" + "\n";
-                    currentSubversiveness++;
-                    Invoke ("NextQuestion", tests[currentTest].OptionCResponse.length + 0.7f);
                     return;
             }
         }
@@ -182,7 +189,7 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     public void Restart () {
-        ConclusionsObject.SetActive (true);
+
         AIVoiceBox.PlayOneShot (WeNeedMoreDataSound, 1f);
         finalQuestion = false;
         currentTest = -1;
@@ -213,12 +220,15 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     public void NextQuestion () {
+        ConclusionsObject.SetActive (false);
+        RailSounds.Play ();
         audioPlayer.StartMusic ();
         panelA.Close ();
         panelB.Close ();
         RailAnimator.ResetTrigger ("Go");
         RailAnimator.SetTrigger ("Go");
         ContextPanel.Close ();
+        HintTextMesh.text = " ";
         InputTextMesh.SetText (" ");
         AITextMesh.SetText (" ");
         AILongFormatTextMesh.SetText (" ");
@@ -243,50 +253,50 @@ public class AnalysisManager : MonoBehaviour {
 
     void Start () {
         RedlightMaterial = RedLight.material;
+        RailSounds.Play ();
         ResetDictation ();
     }
 
     void ClearDictation () {
         m_DictationRecognizer.Stop ();
-        print("Dictation is stopped");
-        print(m_DictationRecognizer.Status);
-        //   m_DictationRecognizer.Dispose ();
+        print ("Dictation is stopped");
+        print (m_DictationRecognizer.Status);
     }
 
-    void ResetDictation () {
+    void OnApplicationFocus (bool hasFocus) {
+        if (gameStarted) {
+            ResetDictation ();
+        }
+
+    }
+
+    void OnApplicationPause (bool pauseStatus) {
+        if (gameStarted) {
+            ClearDictation ();
+        }
+    }
+
+    public void ResetDictation () {
 
         m_DictationRecognizer = new DictationRecognizer ();
-        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 9999999999f;
-        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 9999999999f;
+        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999991f;
+        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999991f;
 
         m_DictationRecognizer.DictationResult += (text, confidence) => {
             AnalyzeVoice (text);
-            //    Debug.LogFormat ("Dictation result: {0}", text);
-        };
-
-        m_DictationRecognizer.DictationHypothesis += (text) => {
-            //    Debug.LogFormat ("Dictation hypothesis: {0}", text);
-        };
-
-        m_DictationRecognizer.DictationComplete += (completionCause) => {
-            //  if (completionCause != DictationCompletionCause.Complete)
-            //       Debug.LogErrorFormat ("Dictation completed unsuccessfully: {0}.", completionCause);
-        };
-
-        m_DictationRecognizer.DictationError += (error, hresult) => {
-            Debug.LogErrorFormat ("Dictation error: {0}; HResult = {1}.", error, hresult);
         };
 
         m_DictationRecognizer.Start ();
-        print("Dictation is started");
-        print(m_DictationRecognizer.Status);
+
+        print ("Dictation is started");
+        print (m_DictationRecognizer.Status);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.X))
-        {
-            print(m_DictationRecognizer.Status);
+    private void Update () {
+        if (Input.GetKeyUp (KeyCode.X)) {
+            print (m_DictationRecognizer.Status);
+            print (m_DictationRecognizer.InitialSilenceTimeoutSeconds);
+            print (m_DictationRecognizer.AutoSilenceTimeoutSeconds);
         }
     }
 }

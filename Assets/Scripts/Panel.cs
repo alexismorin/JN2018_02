@@ -10,6 +10,7 @@ public class Panel : MonoBehaviour {
     public TextMeshPro textmesh;
 
     public void DisplayItem (Texture newTexture, string displayText) {
+        GetComponent<AudioSource> ().Play ();
         animatedPanel.GetComponent<Animator> ().SetTrigger ("Open");
         texturePanel.GetComponent<MeshRenderer> ().material.SetTexture ("_MainTex", newTexture);
         textmesh.text = displayText;
