@@ -11,6 +11,7 @@ public class AnalysisManager : MonoBehaviour {
     public TextMeshPro AITextMesh;
     public TextMeshPro AILongFormatTextMesh;
     public TextMeshPro ConclusionsTextMesh;
+    public GameObject ConclusionsObject;
     public Panel panelA;
     public Panel panelB;
     public ContextDisplay ContextPanel;
@@ -183,6 +184,7 @@ public class AnalysisManager : MonoBehaviour {
             Debug.Log ("Next Question");
             Invoke ("AskQuestion", NextQuestionSound.length + 0.5f);
         } else {
+            ConclusionsObject.SetActive (true);
             finalQuestion = true;
             AIVoiceBox.PlayOneShot (FinalQuestionSound, 1f);
             Debug.Log ("End of Evaluation");
