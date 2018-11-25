@@ -201,8 +201,8 @@ public class AnalysisManager : MonoBehaviour {
 
     void Start () {
         m_DictationRecognizer = new DictationRecognizer ();
-        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999f;
-        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999f;
+        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999999f;
+        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999999f;
 
         m_DictationRecognizer.DictationResult += (text, confidence) => {
             AnalyzeVoice (text);
