@@ -21,6 +21,9 @@ public class AnalysisManager : MonoBehaviour {
     string m_Recognitions;
     public DictationRecognizer m_DictationRecognizer;
     public AudioManager audioPlayer;
+    [Space (10)]
+    public AudioSource CameraAudio;
+    public Animator CameraAnimation;
 
     public bool isListening = true;
     public AudioSource AIVoiceBox;
@@ -40,10 +43,8 @@ public class AnalysisManager : MonoBehaviour {
 
     void AnalyzeVoice (string inputText) {
 
-        InputTextMesh.SetText (inputText);
-
         if (isListening == true) {
-
+            InputTextMesh.SetText (inputText);
             // Begin Game Stuff
             if (currentTest == -1) {
                 if (inputText.Contains (startTriggerKeyword)) {
@@ -167,7 +168,12 @@ public class AnalysisManager : MonoBehaviour {
     public void TrueEnding () {
 
         AIVoiceBox.PlayOneShot (TrueEndingSound, 1f);
+        Invoke ("Recall", TrueEndingSound.length);
+    }
 
+    public void Recall () {
+        CameraAnimation.SetTrigger ("Jump");
+        CameraAudio.Play ();
     }
 
     public void NextQuestion () {

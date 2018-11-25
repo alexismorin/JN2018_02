@@ -7,6 +7,7 @@ public class ContextDisplay : MonoBehaviour {
 
     public GameObject texturePanel;
     public GameObject blurPanel;
+    public GameObject lightobj;
 
     public void Start () {
         Close ();
@@ -15,12 +16,14 @@ public class ContextDisplay : MonoBehaviour {
     public void DisplayItem (Texture newTexture) {
         texturePanel.SetActive (true);
         blurPanel.SetActive (true);
+        //     lightobj.SetActive (true);
         texturePanel.GetComponent<MeshRenderer> ().material.SetTexture ("_MainTex", newTexture);
     }
 
     public void Close () {
         texturePanel.SetActive (false);
         blurPanel.SetActive (false);
+        //     lightobj.SetActive (false);
     }
 
 }
