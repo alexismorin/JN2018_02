@@ -19,7 +19,7 @@ MonoBehaviour:
   OptionBTexture: {fileID: 2800000, guid: e0030a590b9f5424c983137e0e266057, type: 3}
   ContextTexture: {fileID: 2800000, guid: f286aec98015647458e68dffd66419aa, type: 3}
   OptionACaption: 
-  OptionAWord: Straight
+  OptionAWord: Forward
   OptionAResponse: {fileID: 8300000, guid: 8fa8802e92bd36e43a61a18bf0e57202, type: 3}
   OptionAConclusion: Murderous
   OptionA:
@@ -29,6 +29,7 @@ MonoBehaviour:
   - stay
   - child
   - kid
+  - ahead
   OptionBCaption: 
   OptionBWord: Right
   OptionBResponse: {fileID: 8300000, guid: 2b25bc48286089d4ca74691528016fcb, type: 3}
