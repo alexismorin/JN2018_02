@@ -11,6 +11,7 @@ public class AnalysisManager : MonoBehaviour {
     public TextMeshPro AITextMesh;
     public TextMeshPro AILongFormatTextMesh;
     public TextMeshPro ConclusionsTextMesh;
+    public GameObject ConclusionsObject;
     public Panel panelA;
     public Panel panelB;
     public ContextDisplay ContextPanel;
@@ -19,6 +20,7 @@ public class AnalysisManager : MonoBehaviour {
     string m_Hypotheses;
     string m_Recognitions;
     public DictationRecognizer m_DictationRecognizer;
+    public AudioManager audioPlayer;
 
     public bool isListening = true;
     public AudioSource AIVoiceBox;
@@ -76,6 +78,7 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     void Welcome () {
+        audioPlayer.StartMusic ();
         isListening = false;
         AITextMesh.SetText (welcomeText);
         AIVoiceBox.PlayOneShot (welcomeSound, 1f);
@@ -168,6 +171,7 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     public void NextQuestion () {
+        audioPlayer.StartMusic ();
         panelA.Close ();
         panelB.Close ();
         ContextPanel.Close ();
@@ -180,6 +184,7 @@ public class AnalysisManager : MonoBehaviour {
             Debug.Log ("Next Question");
             Invoke ("AskQuestion", NextQuestionSound.length + 0.5f);
         } else {
+            ConclusionsObject.SetActive (true);
             finalQuestion = true;
             AIVoiceBox.PlayOneShot (FinalQuestionSound, 1f);
             Debug.Log ("End of Evaluation");

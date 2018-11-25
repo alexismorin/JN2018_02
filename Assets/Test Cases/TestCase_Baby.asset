@@ -15,9 +15,9 @@ MonoBehaviour:
   QuestionAudio: {fileID: 8300000, guid: 9e22f2f108577cd4fa9097b31d1cae07, type: 3}
   QuestionCaption: What do you do with the baby?
   QuestionCaptionLong: 
-  OptionATexture: {fileID: 2800000, guid: b2579e58b226ffd4689009511a7abe0d, type: 3}
-  OptionBTexture: {fileID: 2800000, guid: 05d77af6de403f34a978f95b40daddcf, type: 3}
-  ContextTexture: {fileID: 0}
+  OptionATexture: {fileID: 2800000, guid: 7a12e4be5235119479e2cedf76eb66d6, type: 3}
+  OptionBTexture: {fileID: 2800000, guid: b1f2b68b410d2b04494853fb73429f93, type: 3}
+  ContextTexture: {fileID: 2800000, guid: db24c0d555521c34abbfe484c56d75e7, type: 3}
   OptionACaption: 
   OptionAWord: Kill
   OptionAResponse: {fileID: 8300000, guid: 2d414847521e3cf408baf93f68278feb, type: 3}
