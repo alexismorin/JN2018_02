@@ -248,14 +248,16 @@ public class AnalysisManager : MonoBehaviour {
 
     void ClearDictation () {
         m_DictationRecognizer.Stop ();
+        print("Dictation is stopped");
+        print(m_DictationRecognizer.Status);
         //   m_DictationRecognizer.Dispose ();
     }
 
     void ResetDictation () {
 
         m_DictationRecognizer = new DictationRecognizer ();
-        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999f;
-        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999f;
+        m_DictationRecognizer.InitialSilenceTimeoutSeconds = 9999999999f;
+        m_DictationRecognizer.AutoSilenceTimeoutSeconds = 9999999999f;
 
         m_DictationRecognizer.DictationResult += (text, confidence) => {
             AnalyzeVoice (text);
@@ -276,6 +278,15 @@ public class AnalysisManager : MonoBehaviour {
         };
 
         m_DictationRecognizer.Start ();
+        print("Dictation is started");
+        print(m_DictationRecognizer.Status);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            print(m_DictationRecognizer.Status);
+        }
+    }
 }
