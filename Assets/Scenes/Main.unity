@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -2.188529, z: 9.792212, w: -4.9349146}
+  m_margin: {x: 0, y: 0.23176718, z: 9.792212, w: 0.22927284}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 1
@@ -1192,7 +1192,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292200416}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029802318}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.127}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 957966255}
@@ -1200,8 +1200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -2.482, y: 2.13}
+  m_SizeDelta: {x: 15.93, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &293656487
 GameObject:
