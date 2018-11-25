@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,11 +13,17 @@ public class AnalysisManager : MonoBehaviour {
     public TextMeshPro AITextMesh;
     public TextMeshPro AILongFormatTextMesh;
     public TextMeshPro ConclusionsTextMesh;
+    public TextMeshPro HintTextMesh;
+
     public GameObject ConclusionsObject;
     public GameObject Credits;
     public Panel panelA;
     public Panel panelB;
     public ContextDisplay ContextPanel;
+    public MeshRenderer RedLight;
+    public Material RedlightMaterial;
+    public Color RedColor;
+    public Color BlackColor;
     [Space (10)]
     public bool finalQuestion;
     string m_Hypotheses;
@@ -42,6 +49,7 @@ public class AnalysisManager : MonoBehaviour {
     public int currentTest = 0;
     public int currentSubversiveness = 0;
     public int subersiveRequirement = 1;
+    public Animator RailAnimator;
 
     void AnalyzeVoice (string inputText) {
 
@@ -81,14 +89,17 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     void Welcome () {
+        ClearDictation ();
         audioPlayer.StartMusic ();
         isListening = false;
+        RedlightMaterial.SetColor ("_EmissionColor", BlackColor);
         AITextMesh.SetText (welcomeText);
         AIVoiceBox.PlayOneShot (welcomeSound, 1f);
         Invoke ("AskQuestion", welcomeSound.length + 0.5f);
     }
 
     void AskQuestion () {
+
         InputTextMesh.SetText (" ");
         currentTest++;
         panelA.DisplayItem (tests[currentTest].OptionATexture, tests[currentTest].OptionAWord);
@@ -99,17 +110,29 @@ public class AnalysisManager : MonoBehaviour {
         AILongFormatTextMesh.SetText (tests[currentTest].QuestionCaptionLong);
         AIVoiceBox.PlayOneShot (tests[currentTest].QuestionAudio, 1f);
         Debug.Log (tests[currentTest].QuestionCaption);
+        ComposeArray ();
         Invoke ("StartListening", tests[currentTest].QuestionAudio.length);
+        ResetDictation ();
+    }
+
+    void ComposeArray () {
+        string ComposedArray = "";
+        string[] clueArray = (tests[currentTest].OptionA.Concat (tests[currentTest].OptionB).ToArray ()).Concat (tests[currentTest].OptionC).ToArray ();
+        for (var i = 0; i < clueArray.Length; i++) {
+            ComposedArray += clueArray[i].ToString () + " - ";
+        }
+        HintTextMesh.text = ComposedArray + ComposedArray + ComposedArray + ComposedArray + ComposedArray + ComposedArray;
     }
 
     void StartListening () {
         isListening = true;
-        m_DictationRecognizer.Start ();
+        RedlightMaterial.SetColor ("_EmissionColor", RedColor * 2f);
     }
 
     public void HandleResponse (int response) {
+        ClearDictation ();
         isListening = false;
-
+        RedlightMaterial.SetColor ("_EmissionColor", BlackColor);
         if (finalQuestion == true) {
 
             AITextMesh.SetText (" ");
@@ -159,7 +182,7 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     public void Restart () {
-
+        ConclusionsObject.SetActive (true);
         AIVoiceBox.PlayOneShot (WeNeedMoreDataSound, 1f);
         finalQuestion = false;
         currentTest = -1;
@@ -193,6 +216,8 @@ public class AnalysisManager : MonoBehaviour {
         audioPlayer.StartMusic ();
         panelA.Close ();
         panelB.Close ();
+        RailAnimator.ResetTrigger ("Go");
+        RailAnimator.SetTrigger ("Go");
         ContextPanel.Close ();
         InputTextMesh.SetText (" ");
         AITextMesh.SetText (" ");
@@ -206,7 +231,7 @@ public class AnalysisManager : MonoBehaviour {
             if (currentSubversiveness >= subersiveRequirement) {
                 TrueEnding ();
             } else {
-                ConclusionsObject.SetActive (true);
+
                 finalQuestion = true;
                 AIVoiceBox.PlayOneShot (FinalQuestionSound, 1f);
                 Debug.Log ("End of Evaluation");
@@ -217,6 +242,17 @@ public class AnalysisManager : MonoBehaviour {
     }
 
     void Start () {
+        RedlightMaterial = RedLight.material;
+        ResetDictation ();
+    }
+
+    void ClearDictation () {
+        m_DictationRecognizer.Stop ();
+        //   m_DictationRecognizer.Dispose ();
+    }
+
+    void ResetDictation () {
+
         m_DictationRecognizer = new DictationRecognizer ();
         m_DictationRecognizer.InitialSilenceTimeoutSeconds = 999999f;
         m_DictationRecognizer.AutoSilenceTimeoutSeconds = 999999f;
