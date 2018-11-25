@@ -7288,6 +7288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: agree
+  loadingText: {fileID: 2011557001}
 --- !u!82 &1384755284
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,13 +10,20 @@ public class MainMenuAnalysis : MonoBehaviour {
 
     public DictationRecognizer m_DictationRecognizer;
     public string trigger = "human";
+    public TextMeshPro loadingText;
 
     void AnalyzeVoice (string inputText) {
 
         if (inputText.ToLower ().Contains (trigger)) {
             m_DictationRecognizer.Dispose ();
-            SceneManager.LoadScene ("Main", LoadSceneMode.Single);
+            loadingText.text = "[LOADING]";
+            Invoke ("Load", 1.5f);
+
         }
+    }
+
+    public void Load () {
+        SceneManager.LoadScene ("Main", LoadSceneMode.Single);
     }
 
     void Start () {
